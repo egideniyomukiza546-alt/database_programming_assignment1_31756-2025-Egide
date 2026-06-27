@@ -14,7 +14,25 @@
 MediCare Hospital needs a comprehensive database system to manage patient admissions, doctor assignments, and treatment costs. The system aims to analyze doctor performance, patient visit patterns, and revenue trends to optimize healthcare delivery and financial management.
 
 ---
+## Business Problem
 
+MediCare Hospital, a mid-sized healthcare facility, faces challenges in managing and analyzing patient admission data, doctor performance, and treatment costs. The hospital currently lacks an integrated system that provides actionable insights from its operational data. 
+
+**Key Challenges:**
+- Difficulty identifying high-cost admissions and their root causes
+- Inability to effectively measure and compare doctor performance
+- Lack of visibility into patient visit patterns and readmission rates
+- No systematic method for analyzing revenue trends across departments
+- Limited ability to make data-driven decisions for cost optimization
+
+**Solution:**
+This database system is designed to address these challenges by:
+1. Tracking patient admissions, doctor assignments, and treatment costs
+2. Providing analytical tools for performance measurement
+3. Enabling identification of cost-saving opportunities
+4. Supporting strategic decision-making through data-driven insights
+
+The system aims to optimize healthcare delivery, improve patient outcomes, and enhance financial management through comprehensive data analysis using Common Table Expressions (CTEs) and Window Functions.
 ## Database Schema
 
 ### Tables
