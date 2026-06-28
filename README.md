@@ -61,7 +61,7 @@ The system aims to optimize healthcare delivery, improve patient outcomes, and e
 The entire SQL script is provided below. It includes:
 
  
-- **CREATION OF OF  TABLES** Queries** (Simple, Multiple, Recursive, Aggregation, Joins
+- **CREATION OF OF  TABLES** 
 - **CTE Queries** (Simple, Multiple, Recursive, Aggregation, Joins)  
 - **Window Functions** (Ranking, Aggregate, Navigation, Distribution)  
 - **Analysis Queries** (Descriptive, Monthly Trends, Diagnostic, Prescriptive)
