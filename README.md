@@ -6,7 +6,7 @@
 - **Student Name:** NIYOMUKIZA Egide  
 - **Student ID:** 31756/2025  
 - **Group:** One  
-- **Assignment Date:** 29 June 2026  
+- **Assignment Date:**  June 2026  
 
 ---
 
@@ -60,11 +60,10 @@ The system aims to optimize healthcare delivery, improve patient outcomes, and e
 
 The entire SQL script is provided below. It includes:
 
+-**Creation of tables 
 - **CTE Queries** (Simple, Multiple, Recursive, Aggregation, Joins)  
 - **Window Functions** (Ranking, Aggregate, Navigation, Distribution)  
 - **Analysis Queries** (Descriptive, Monthly Trends, Diagnostic, Prescriptive)
-
-Before running the script, ensure that the tables `Admissions`, `Patients`, and `Doctors` exist and contain data. The script itself creates the `Departments` table on the fly for the recursive CTE example.
 
 ```sql
 
@@ -73,8 +72,111 @@ SET ECHO ON
 SET LINESIZE 200
 SET PAGESIZE 100
 
--- CTE QUERIES
+CREATE TABLE Doctors (
+    doctor_id INT PRIMARY KEY,
+    first_name VARCHAR2(50),
+    last_name VARCHAR2(50),
+    specialty VARCHAR2(100),
+    hire_date DATE,
+    salary NUMBER(10,2),
+    department VARCHAR2(50)
+);
+COMMIT;
 
+CREATE TABLE Patients (
+    patient_id INT PRIMARY KEY,
+    first_name VARCHAR2(50),
+    last_name VARCHAR2(50),
+    date_of_birth DATE,
+    gender VARCHAR2(10),
+    phone VARCHAR2(15),
+    email VARCHAR2(100),
+    address VARCHAR2(200)
+);
+COMMIT;
+
+CREATE TABLE Admissions (
+    admission_id INT PRIMARY KEY,
+    patient_id INT,
+    doctor_id INT,
+    admission_date DATE,
+    discharge_date DATE,
+    diagnosis VARCHAR2(200),
+    room_number VARCHAR2(10),
+    total_cost NUMBER(10,2),
+    FOREIGN KEY (patient_id) REFERENCES Patients(patient_id),
+    FOREIGN KEY (doctor_id) REFERENCES Doctors(doctor_id)
+);
+COMMIT;
+
+
+-- Doctors Data
+INSERT INTO Doctors VALUES (1, 'John', 'Smith', 'Cardiology', DATE '2015-06-01', 250000.00, 'Cardiology');
+INSERT INTO Doctors VALUES (2, 'Sarah', 'Johnson', 'Neurology', DATE '2016-08-15', 230000.00, 'Neurology');
+INSERT INTO Doctors VALUES (3, 'Michael', 'Williams', 'Orthopedics', DATE '2018-01-10', 210000.00, 'Orthopedics');
+INSERT INTO Doctors VALUES (4, 'Emily', 'Brown', 'Pediatrics', DATE '2017-03-20', 190000.00, 'Pediatrics');
+INSERT INTO Doctors VALUES (5, 'David', 'Jones', 'Cardiology', DATE '2019-05-05', 220000.00, 'Cardiology');
+INSERT INTO Doctors VALUES (6, 'Lisa', 'Garcia', 'Neurology', DATE '2020-07-12', 200000.00, 'Neurology');
+INSERT INTO Doctors VALUES (7, 'Robert', 'Miller', 'Orthopedics', DATE '2018-09-01', 215000.00, 'Orthopedics');
+INSERT INTO Doctors VALUES (8, 'Jennifer', 'Davis', 'Pediatrics', DATE '2016-11-25', 195000.00, 'Pediatrics');
+INSERT INTO Doctors VALUES (9, 'William', 'Rodriguez', 'Cardiology', DATE '2017-02-14', 240000.00, 'Cardiology');
+INSERT INTO Doctors VALUES (10, 'Patricia', 'Martinez', 'Neurology', DATE '2019-08-30', 225000.00, 'Neurology');
+
+-- Patients Data
+INSERT INTO Patients VALUES (101, 'James', 'Ndayisaba', DATE '1985-03-15', 'Male', '555-0101', 'james.a@email.com', '123 Oak St, City');
+INSERT INTO Patients VALUES (102, 'Mary', 'Uwimana', DATE '1990-07-22', 'Female', '555-0102', 'mary.t@email.com', '456 Pine Ave, City');
+INSERT INTO Patients VALUES (103, 'Robert', 'Habimana', DATE '1978-11-08', 'Male', '555-0103', 'robert.c@email.com', '789 Elm Rd, City');
+INSERT INTO Patients VALUES (104, 'Patricia', 'Mukamana', DATE '1995-02-28', 'Female', '555-0104', 'patricia.w@email.com', '321 Maple Dr, City');
+INSERT INTO Patients VALUES (105, 'Michael', 'Bizimana', DATE '1982-09-12', 'Male', '555-0105', 'michael.h@email.com', '654 Birch Ln, City');
+INSERT INTO Patients VALUES (106, 'Jennifer', 'Nshimiyimana', DATE '2000-06-05', 'Female', '555-0106', 'jennifer.m@email.com', '987 Cedar Ct, City');
+INSERT INTO Patients VALUES (107, 'William', 'Nsengiyumva', DATE '1975-04-18', 'Male', '555-0107', 'william.j@email.com', '147 Willow Way, City');
+INSERT INTO Patients VALUES (108, 'Linda', 'Imanishimwe', DATE '1988-12-30', 'Female', '555-0108', 'linda.t@email.com', '258 Spruce St, City');
+INSERT INTO Patients VALUES (109, 'David', 'Manzi', DATE '1992-08-14', 'Male', '555-0109', 'david.g@email.com', '369 Ash Ave, City');
+INSERT INTO Patients VALUES (110, 'Sarah', 'Niyonkuru', DATE '1980-01-25', 'Female', '555-0110', 'sarah.m@email.com', '741 Poplar Dr, City');
+
+-- Admissions Data
+INSERT INTO Admissions VALUES (1001,105,5,DATE '2026-01-05',DATE '2026-01-08','Chest Pain','301B',6200.00);
+INSERT INTO Admissions VALUES (1002,102,2,DATE '2026-01-10',DATE '2026-01-15','Migraine','302B',3200.00);
+INSERT INTO Admissions VALUES (1003,103,7,DATE '2026-01-12',DATE '2026-01-18','Knee Surgery','303C',7800.00);
+INSERT INTO Admissions VALUES (1004,110,4,DATE '2026-01-20',DATE '2026-01-22','Fever','304A',1500.00);
+INSERT INTO Admissions VALUES (1005,109,9,DATE '2026-02-01',DATE '2026-02-05','Heart Arrhythmia','301C',6200.00);
+INSERT INTO Admissions VALUES (1006,106,6,DATE '2026-02-03',DATE '2026-02-06','Seizure','302C',5400.00);
+INSERT INTO Admissions VALUES (1007,107,3,DATE '2026-02-10',DATE '2026-02-20','Fracture','303A',9500.00);
+INSERT INTO Admissions VALUES (1008,108,8,DATE '2026-02-15',DATE '2026-02-17','Childhood Illness','304B',2100.00);
+INSERT INTO Admissions VALUES (1009,101,1,DATE '2026-03-01',DATE '2026-03-05','Heart Valve Issue','301A',8800.00);
+INSERT INTO Admissions VALUES (1010,110,10,DATE '2026-03-03',DATE '2026-03-06','Head Injury','302A',4600.00);
+INSERT INTO Admissions VALUES (1011,104,4,DATE '2026-03-08',DATE '2026-03-09','Allergic Reaction','304A',800.00);
+INSERT INTO Admissions VALUES (1012,102,6,DATE '2026-03-12',DATE '2026-03-18','Stroke','302B',9400.00);
+INSERT INTO Admissions VALUES (1013,103,7,DATE '2026-03-15',DATE '2026-03-22','Hip Replacement','303C',12000.00);
+INSERT INTO Admissions VALUES (1014,105,5,DATE '2026-04-01',DATE '2026-04-05','Chest Pain','301B',4800.00);
+INSERT INTO Admissions VALUES (1015,106,10,DATE '2026-04-03',DATE '2026-04-08','Brain Tumor','302C',15000.00);
+INSERT INTO Admissions VALUES (1016,107,3,DATE '2026-04-10',DATE '2026-04-18','Spinal Surgery','303A',13500.00);
+INSERT INTO Admissions VALUES (1017,108,8,DATE '2026-04-15',DATE '2026-04-16','Ear Infection','304B',1200.00);
+INSERT INTO Admissions VALUES (1018,109,9,DATE '2026-04-20',DATE '2026-04-28','Heart Bypass','301C',22000.00);
+INSERT INTO Admissions VALUES (1019,101,1,DATE '2026-05-05',DATE '2026-05-10','Angina','301A',5200.00);
+INSERT INTO Admissions VALUES (1020,102,2,DATE '2026-05-12',DATE '2026-05-15','Concussion','302B',3800.00);
+
+COMMIT;
+
+CREATE TABLE Departments (
+    dept_id INT PRIMARY KEY,
+    dept_name VARCHAR2(100),
+    parent_dept_id INT,
+    FOREIGN KEY (parent_dept_id) REFERENCES Departments(dept_id)
+);
+COMMIT;
+
+INSERT INTO Departments VALUES (1, 'Healthcare', NULL);
+INSERT INTO Departments VALUES (2, 'Medical', 1);
+INSERT INTO Departments VALUES (3, 'Surgical', 1);
+INSERT INTO Departments VALUES (4, 'Cardiology', 2);
+INSERT INTO Departments VALUES (5, 'Neurology', 2);
+INSERT INTO Departments VALUES (6, 'Orthopedics', 3);
+INSERT INTO Departments VALUES (7, 'Pediatrics', 3);
+
+COMMIT;
+
+-- CTE QUERIES
 
 -- CTE 1: Simple CTE - High-Cost Admissions
 WITH HighCostAdmissions AS (
@@ -123,21 +225,6 @@ LEFT JOIN DoctorRevenue dr ON d.doctor_id = dr.doctor_id
 ORDER BY revenue_generated DESC;
 
 -- CTE 3: Recursive CTE - Department Hierarchy
-
-CREATE TABLE Departments (
-    dept_id INT PRIMARY KEY,
-    dept_name VARCHAR2(100),
-    parent_dept_id INT,
-    FOREIGN KEY (parent_dept_id) REFERENCES Departments(dept_id)
-);
-
-INSERT INTO Departments VALUES (1, 'Healthcare', NULL);
-INSERT INTO Departments VALUES (2, 'Medical', 1);
-INSERT INTO Departments VALUES (3, 'Surgical', 1);
-INSERT INTO Departments VALUES (4, 'Cardiology', 2);
-INSERT INTO Departments VALUES (5, 'Neurology', 2);
-INSERT INTO Departments VALUES (6, 'Orthopedics', 3);
-INSERT INTO Departments VALUES (7, 'Pediatrics', 3);
 
 WITH DeptHierarchy (dept_id, dept_name, parent_dept_id, tree_level, path_hierarchy) AS (
     SELECT 
