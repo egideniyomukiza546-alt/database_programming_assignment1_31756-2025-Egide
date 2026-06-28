@@ -1,0 +1,43 @@
+Diagnostic Analysis (Why Did It Happen?)
+This analysis investigates the root causes behind the patterns observed in the descriptive statistics, using data from the SQL queries.
+
+
+1. Why Does Cardiology Generate the Highest Revenue ($53,200)?
+	Cardiology includes the most expensive procedure: Heart Bypass ($22,000).
+	2 out of 6 Cardiology admissions cost over $8,000.
+	Average cost per Cardiology admission: $8,866.67.
+	Dr. William Rodriguez handles the most complex cases (avg $14,100 per patient).
+	Root Cause: Complex heart surgeries require specialized equipment, longer ICU stays, and highly trained staff.
+
+2. Why Does Orthopedics Have the Longest Average Stay (7.75 Days)?
+	Orthopedic surgeries (Spinal Surgery, Hip Replacement, Knee Surgery, Fracture) require extensive recovery time.
+	Spinal Surgery: 8-day stay (William Nsengiyumva).
+	Hip Replacement: 7-day stay (Robert Habimana).
+  	Fracture: 10-day stay (William Nsengiyumva).Root Cause: Physical therapy and rehabilitation after bone surgeries take significant time.
+
+3. Why Is Pediatrics the Lowest Cost Department ($5,600)?
+	All Pediatrics cases are non-surgical (Allergic Reaction, Ear Infection, Fever, Childhood Illness).
+	Shortest average stay: 1.5 days.
+	Lowest average cost: $1,400 per admission.
+	Root Cause: Children recover faster and require less complex interventions.
+
+4. Why Was April the Busiest Month (5 Admissions, $56,500 Revenue)?
+	April included the highest-cost admissions: Heart Bypass ($22,000), Brain Tumor ($15,000), Spinal Surgery ($13,500).
+	Seasonal change may trigger cardiovascular issues and elective surgeries scheduled after winter.
+	Root Cause: Hospitals often schedule major elective surgeries in spring (post-winter).
+5. Why Does Patient Mary Uwimana Have the Highest Visit Frequency (3 Visits)?
+
+	First visit: Migraine ($3,200) → Second: Stroke ($9,400) → Third: Concussion ($3,800).
+	Costs fluctuated: increased by 194% from visit 1 to visit 2, then decreased by 59.6%.
+	Root Cause: Underlying chronic condition requiring multiple follow-ups. Stroke was a serious escalation.
+
+6. Why Does Dr. William Rodriguez Generate the Highest Revenue Per Doctor ($28,200)?
+	He treats the two most expensive patients: David Manzi (Heart Arrhythmia: $6,200 → Heart Bypass: $22,000).
+	Cardiology department has the highest average cost per admission.
+	Root Cause: Specialization in complex cardiology procedures leads to higher billing.
+
+7. Why Do Some Patients Have Cost Decreases?
+	Example: James Ndayisaba: $8,800 → $5,200.
+	First visit was Heart Valve Issue (serious).
+	Second visit was Angina (less severe, managed with medication).
+	Root Cause: Effective treatment reduced severity of subsequent conditions.

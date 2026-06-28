@@ -1,0 +1,56 @@
+Prescriptive Analysis - MediCare Hospital
+PRESCRIPTIVE ANALYSIS (What Actions Should Be Taken?)
+
+Based on the descriptive and diagnostic findings, here are actionable recommendations
+for MediCare Hospital to improve efficiency, reduce costs, and optimize patient care.
+
+1. COST OPTIMIZATION – CARDIOLOGY
+- ACTION: Implement a cost-review committee for the top 25% of Cardiology admissions.
+- TARGET: Admissions costing over $15,000 (Heart Bypass, Brain Tumor).
+- CURRENT STATE: Cardiology average cost is $8,866.67 (36% above hospital average).
+- EXPECTED OUTCOME: Reduce average Cardiology cost by 10-15%.
+- MEASURE: Compare cost per procedure quarterly.
+
+2. EFFICIENCY IMPROVEMENT – ORTHOPEDICS
+- ACTION: Introduce enhanced early-mobilization physiotherapy protocols.
+- TARGET: Reduce average stay from 7.75 days to 6.0 days.
+- CURRENT STATE: Orthopedics has the longest stay and second-highest cost.
+- EXPECTED OUTCOME: Increase bed turnover rate by 22%.
+- MEASURE: Track discharge dates vs expected recovery milestones.
+
+3. RESOURCE ALLOCATION – PEAK MONTHS
+- ACTION: Add an extra Cardiology specialist on-call during March and April.
+- CURRENT STATE: March and April have 5 admissions each (25% of annual total).
+- EXPECTED OUTCOME: Reduce patient wait times and distribute workload.
+- MEASURE: Track admission-to-treatment time.
+
+4. TRAINING AND BEST PRACTICES
+- ACTION: Use Pediatrics department as a benchmark for cost-efficient care.
+- CURRENT STATE: Pediatrics has lowest cost and shortest stay.
+- EXPECTED OUTCOME: Replicate efficient care pathways in other departments.
+- MEASURE: Share best practices quarterly and track cost trends.
+
+5. PREVENTIVE CARE PROGRAM
+- ACTION: Launch follow-up program for chronic condition patients.
+- CURRENT STATE: Patient with repeated admissions cost significantly more overall.
+- EXPECTED OUTCOME: Reduce readmissions by 20–25%.
+- MEASURE: Monitor 6-month readmission rates.
+
+6. DOCTOR PERFORMANCE ANALYSIS
+- ACTION: Review high-cost doctors for efficiency optimization.
+- CURRENT STATE: Top doctors generate a large portion of revenue.
+- EXPECTED OUTCOME: Balance cost-effectiveness with quality care.
+- MEASURE: Compare cost-per-patient vs outcomes.
+
+7. ORGANIZATIONAL STRUCTURE
+- ACTION: Use department hierarchy for restructuring.
+- CURRENT STATE: 3-level healthcare structure identified.
+- EXPECTED OUTCOME: Improve reporting and resource allocation.
+- MEASURE: Quarterly organizational review.
+
+8. PATIENT COST PREDICTION
+- ACTION: Flag top 15% highest-cost patients using statistical distribution.
+- CURRENT STATE: High-cost patients contribute large share of revenue.
+- EXPECTED OUTCOME: Early intervention and personalized care plans.
+- MEASURE: Track outcomes and cost trends.
+

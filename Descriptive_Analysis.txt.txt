@@ -1,0 +1,39 @@
+Descriptive Analysis (What Happened?)
+This analysis summarizes the key metrics from the MediCare Hospital database, based on the actual SQL query results executed on Oracle 21c.
+
+1. Overall Statistics
+	Total Admissions: 20
+	Total Revenue Generated: $143,000.00
+	Average Cost per Admission: $7,150.00
+	Most Expensive Admission: $22,000.00 (David Manzi - Heart Bypass)
+	Cheapest Admission: $800.00 (Patricia Mukamana - Allergic Reaction)
+	Average Length of Stay: 4.5 days
+
+2. Monthly Breakdown
+	January 2026: 4 admissions | Revenue: $18,700.00 | Avg Cost: $4,675.00
+	February 2026: 4 admissions | Revenue: $23,200.00 | Avg Cost: $5,800.00
+	March 2026: 5 admissions | Revenue: $35,800.00 | Avg Cost: $7,120.00
+	April 2026: 5 admissions | Revenue: $56,500.00 | Avg Cost: $11,300.00
+	May 2026: 2 admissions | Revenue: $9,000.00 | Avg Cost: $4,500.00 
+
+3. Department Performance (By Revenue) 
+	Cardiology: $53,200.00 (6 admissions) - Highest
+	Orthopedics: $42,800.00 (4 admissions)
+	Neurology: $41,400.00 (6 admissions)
+	Pediatrics: $5,600.00 (4 admissions) - Lowest
+
+4. Doctor Performance (Top 3 by Revenue Generated)
+	Dr. William Rodriguez (Cardiology): $28,200.00 (2 patients)
+	Dr. Michael Williams (Orthopedics): $23,000.00 (2 patients)
+	Dr. Robert Miller (Orthopedics): $19,800.00 (2 patients)
+
+5. Patient Visit Patterns
+	Patients with Multiple Visits: 9 patients
+	Patient Mary Uwimana had 3 visits (most frequent patient)
+	James Ndayisaba had 2 visits with decreasing costs ($8,800 → $5,200)
+	Average visits per patient: 1.8
+
+6. Department Hierarchy (Recursive CTE Result)
+	Level 0: Healthcare
+	Level 1: Medical, Surgical
+	Level 2: Cardiology, Neurology, Orthopedics, Pediatrics
